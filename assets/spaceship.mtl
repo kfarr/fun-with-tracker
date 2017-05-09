@@ -1,0 +1,13 @@
+# Max2Mtl Version 6.0 Jul 29th, 2003
+#
+g
+newmtl PolyShip_UnWrap
+Ka  0.0 0.0 0.0
+Kd  0.0 0.0 0.0
+Ks  1.0 1.0 1.0
+d  1.0
+Ns  5.0
+illum 2
+map_Kd polyship.jpg
+#
+# EOF

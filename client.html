@@ -28,8 +28,10 @@
           var positionString = snapshot.val().positionX + " " + snapshot.val().positionY + " " + snapshot.val().positionZ;
 //          console.log(positionString);
 //          console.log(rotationString);
-          document.getElementsByTagName("a-camera")[0].setAttribute("rotation", rotationString);
-          document.getElementsByTagName("a-camera")[0].setAttribute("position", positionString);
+          document.getElementById("trackerClient").setAttribute("rotation", rotationString);
+          document.getElementById("trackerClient").setAttribute("position", positionString);
+          // document.getElementsByTagName("a-camera")[0].setAttribute("rotation", rotationString);
+          // document.getElementsByTagName("a-camera")[0].setAttribute("position", positionString);
         })
       },
       tick: function () {
@@ -75,10 +77,10 @@
 
   <a-sky color="#3CF"></a-sky>
   <a-entity id="trackerClient" firebase-tracker-client>
-    <a-camera look-controls-enabled="false"></a-camera>
-    <a-entity class="cube" mixin="cube" ></a-entity>
+    <a-camera look-controls-enabled="false" user-height="0" rotation="90 0 0"></a-camera>
 
-    <a-entity obj-model="obj: #spaceship-obj; mtl: #spaceship-mtl" scale="0.01 0.01 0.01"></a-entity>
   </a-entity>
+  <a-entity obj-model="obj: #spaceship-obj; mtl: #spaceship-mtl" scale="0.01 0.01 0.01"></a-entity>
+  <a-entity class="cube" mixin="cube" ></a-entity>
 
 </a-scene>

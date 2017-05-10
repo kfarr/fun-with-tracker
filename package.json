@@ -1,0 +1,22 @@
+{
+  "name": "fun-with-tracker",
+  "version": "1.0.0",
+  "description": "just some fun with vive trackers, a-frame and firefox nightly",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kfarr/fun-with-tracker.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kfarr/fun-with-tracker/issues"
+  },
+  "homepage": "https://github.com/kfarr/fun-with-tracker#readme",
+  "dependencies": {
+    "http-server": "^0.10.0"
+  }
+}

@@ -1,10 +1,12 @@
-<!-- script src="https://rawgit.com/chenzlabs/aframe/support-vive-tracker-dist/dist/aframe-master.js"></script -->
-<!-- script src="http://localhost:9000/build/aframe-master.js"></script -->
-    <script src="https://rawgit.com/chenzlabs/aframe/master/dist/aframe-master.js"></script>
+<html>
+<head>
+    <!-- <script src="https://rawgit.com/chenzlabs/aframe/master/dist/aframe-master.js"></script> -->
+
+    <!-- Source: https://github.com/aframevr/aframe/pull/2583/commits/fd65e15bd33a62e95786a1d4de73b780ab56a741 -->
+    <script src="lib/aframe.js"></script>
+
     <script src="https://www.gstatic.com/firebasejs/3.9.0/firebase.js"></script>
-
     <script>
-
     AFRAME.registerComponent('firebase-tracker-client', {
       schema: {default: 0},
       init: function () {
@@ -18,7 +20,6 @@
           messagingSenderId: "577646620355"
         };
     		firebase.initializeApp(config);
-
         // list trackers available
         var trackerId = 0; // for now just use trackerId 0 until we actually list multiple trackers
         //        var fooComponent = document.querySelector('[foo]').components.foo;
@@ -38,11 +39,20 @@
 //        var trackerId = 0;         // ToDo: get tracker id
       }
     })
-
     </script>
-<a-scene>
-
-  <a-assets>
+    <style>
+      body {
+        margin: 0;
+      }
+      #div {
+        width: 100vw;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body>
+    <a-scene>
+      <a-assets>
         <a-mixin id="cube"
                  geometry="primitive: box; height: 0.30; width: 0.30; depth: 0.30"
                  material="color: #EF2D5E;"></a-mixin>
@@ -53,34 +63,46 @@
         <a-asset-item id="spaceship-obj" src="assets/spaceship.obj"></a-asset-item>
         <a-asset-item id="spaceship-mtl" src="assets/spaceship.mtl"></a-asset-item>
       </a-assets>
-        <!-- A-Frame cubes -->
-      <a-entity position="0 0 -0.5">
-        <a-entity class="cube" mixin="cube" position="0.30 1.65 0"></a-entity>
-        <a-entity class="cube" mixin="cube" position="0 1.95 0"></a-entity>
-        <a-entity class="cube" mixin="cube" position="-0.30 1.65 0"></a-entity>
 
-        <a-entity class="cube" mixin="cube" position="0.60 1.35 0"></a-entity>
-        <a-entity class="cube" mixin="cube" position="0.60 1.05 0"></a-entity>
-        <a-entity class="cube" mixin="cube" position="0.60 0.75 0"></a-entity>
-        <a-entity class="cube" mixin="cube" position="0.60 0.45 0"></a-entity>
-        <a-entity class="cube" mixin="cube" position="0.60 0.15 0"></a-entity>
+      <!-- A-Frame cubes -->
+      <a-entity class="cube" mixin="cube" position="0.30 1.65 0"></a-entity>
+      <a-entity class="cube" mixin="cube" position="0 1.95 0"></a-entity>
+      <a-entity class="cube" mixin="cube" position="-0.30 1.65 0"></a-entity>
 
-        <a-entity class="cube" mixin="cube" position="0.30 0.75 0"></a-entity>
-        <a-entity class="cube" mixin="cube" position="0 0.75 0"></a-entity>
-        <a-entity class="cube" mixin="cube" position="-0.30 0.75 0"></a-entity>
+      <a-entity class="cube" mixin="cube" position="0.60 1.35 0"></a-entity>
+      <a-entity class="cube" mixin="cube" position="0.60 1.05 0"></a-entity>
+      <a-entity class="cube" mixin="cube" position="0.60 0.75 0"></a-entity>
+      <a-entity class="cube" mixin="cube" position="0.60 0.45 0"></a-entity>
+      <a-entity class="cube" mixin="cube" position="0.60 0.15 0"></a-entity>
 
-        <a-entity class="cube" mixin="cube" position="-0.60 1.35 0"></a-entity>
-        <a-entity class="cube" mixin="cube" position="-0.60 1.05 0"></a-entity>
-        <a-entity class="cube" mixin="cube" position="-0.60 0.75 0"></a-entity>
-        <a-entity class="cube" mixin="cube" position="-0.60 0.45 0"></a-entity>
-        <a-entity class="cube" mixin="cube" position="-0.60 0.15 0"></a-entity>
+      <a-entity class="cube" mixin="cube" position="0.30 0.75 0"></a-entity>
+      <a-entity class="cube" mixin="cube" position="0 0.75 0"></a-entity>
+      <a-entity class="cube" mixin="cube" position="-0.30 0.75 0"></a-entity>
 
-  <a-sky color="#3CF"></a-sky>
-  <a-entity id="trackerClient" firebase-tracker-client>
-    <a-camera look-controls-enabled="false" user-height="0" rotation="90 0 0"></a-camera>
+      <a-entity class="cube" mixin="cube" position="-0.60 1.35 0"></a-entity>
+      <a-entity class="cube" mixin="cube" position="-0.60 1.05 0"></a-entity>
+      <a-entity class="cube" mixin="cube" position="-0.60 0.75 0"></a-entity>
+      <a-entity class="cube" mixin="cube" position="-0.60 0.45 0"></a-entity>
+      <a-entity class="cube" mixin="cube" position="-0.60 0.15 0"></a-entity>
 
-  </a-entity>
-  <a-entity obj-model="obj: #spaceship-obj; mtl: #spaceship-mtl" scale="0.01 0.01 0.01"></a-entity>
-  <a-entity class="cube" mixin="cube" ></a-entity>
+      <a-sky color="#3CF"></a-sky>
+      <a-entity id="trackerClient" firebase-tracker-client>
+        <a-camera look-controls-enabled="false" user-height="0" rotation="90 0 0"></a-camera>
+      </a-entity>
 
-</a-scene>
+      <a-entity obj-model="obj: #spaceship-obj; mtl: #spaceship-mtl" scale="0.01 0.01 0.01"></a-entity>
+      <a-entity class="cube" mixin="cube" ></a-entity>
+
+  </a-scene>
+  <a onclick="shoot">
+    <div id="div"></div>
+  </a>
+  <script>
+    function shoot() {
+      // tell server to create boom beam -- agree on trajectory and velocity of boom beam
+      // wait for server to tell me to create a boom beam?
+      console.log("shoot");
+    }
+  </script>
+</body>
+</html>
